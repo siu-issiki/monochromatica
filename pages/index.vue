@@ -59,7 +59,7 @@ export default {
       }),
       client.getEntries({
         'content_type': env.CTF_BLOG_POST_TYPE_ID,
-        order: '-sys.createdAt'
+        order: '-fields.publishDate'
       })
     ]).then(([entries, posts]) => {
       return {
