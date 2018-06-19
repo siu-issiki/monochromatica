@@ -8,10 +8,10 @@
       </div>
       <div>
         <img
-          :src="post.fields.heroImage.fields.file.url + '?fit=scale&w=350&h=196'"
-          :srcset="`${post.fields.heroImage.fields.file.url}?w=350&h=87&fit=fill 350w, ${post.fields.heroImage.fields.file.url}?w=1000&h=250&fit=fill 1000w, ${post.fields.heroImage.fields.file.url}?w=2000&h=500&fit=fill 2000w`"
+          :src="currentPost.fields.heroImage.fields.file.url + '?fit=scale&w=350&h=196'"
+          :srcset="`${currentPost.fields.heroImage.fields.file.url}?w=350&h=87&fit=fill 350w, ${currentPost.fields.heroImage.fields.file.url}?w=1000&h=250&fit=fill 1000w, ${currentPost.fields.heroImage.fields.file.url}?w=2000&h=500&fit=fill 2000w`"
           size="100vw"
-          :alt="post.fields.heroImage.fields.description"
+          :alt="currentPost.fields.heroImage.fields.description"
         >
       </div>
     </header>
@@ -19,13 +19,18 @@
     <section class="body-container">
       <main class="wrapper">
         <div class="headline">
-          <time class="tiny">{{ ( new Date(post.fields.publishDate)).toDateString() }}</time>
-          <h1>{{ post.fields.title }}</h1>
+          <time class="tiny">{{ ( new Date(currentPost.fields.publishDate)).toDateString() }}</time>
+          <h1>{{ currentPost.fields.title }}</h1>
         </div>
         <div class="copy">
-          <vue-markdown>{{post.fields.body}}</vue-markdown>
+          <vue-markdown>{{currentPost.fields.body}}</vue-markdown>
         </div>
       </main>
+      <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <nuxt-link v-if="prevPost" class="pagination-next" :to="prevPost.fields.slug">{{ prevPost.fields.title }} &raquo;</nuxt-link>
+        <nuxt-link v-if="nextPost" class="pagination-previous" :to="nextPost.fields.slug">&laquo; {{ nextPost.fields.title }}</nuxt-link>
+        <div v-else class="pagination-previous" disabled>&laquo; Previous</div>
+      </nav>
     </section>
 
   </div>
@@ -39,35 +44,68 @@ import Navigation from '~/components/navigation.vue'
 const client = createClient()
 
 export default {
+  data () {
+    return {
+      allPosts: [],
+      currentPost: []
+    }
+  },
   asyncData ({ env, params }) {
     return client.getEntries({
       'content_type': env.CTF_BLOG_POST_TYPE_ID,
-      'fields.slug': params.slug
+      order: '-fields.publishDate'
     }).then(entries => {
+      const posts = entries.items
+      const current = posts.filter(function (item) {
+        return item.fields.slug === params.slug
+      })
       return {
-        post: entries.items[0]
+        allPosts: posts,
+        currentPost: current[0]
       }
-    })
-    .catch(console.error)
+    }).catch(console.error)
+  },
+  computed: {
+    dateOrder: function () {
+      for (let i = 0; i < this.allPosts.length; i++) {
+        if (this.allPosts[i].fields.publishDate === this.currentPost.fields.publishDate) {
+          return i
+        }
+      }
+    },
+    nextPost: function () {
+      if (this.dateOrder === 0) {
+        return false
+      } else {
+        return this.allPosts[this.dateOrder - 1]
+      }
+    },
+    prevPost: function () {
+      if (this.dateOrder === this.allPosts.length - 1) {
+        return false
+      } else {
+        return this.allPosts[this.dateOrder + 1]
+      }
+    }
   },
   head () {
     return {
-      title: this.post.fields.title,
+      title: this.currentPost.fields.title,
       meta: [
         {
           hid: 'og:description',
           name: 'og:description',
-          content: this.post.fields.description
+          content: this.currentPost.fields.description
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: this.post.fields.title
+          content: this.currentPost.fields.title
         },
         {
           hid: 'og:image',
           name: 'og:image',
-          content: this.post.fields.heroImage.fields.file.url
+          content: this.currentPost.fields.heroImage.fields.file.url
         }
       ]
     }
