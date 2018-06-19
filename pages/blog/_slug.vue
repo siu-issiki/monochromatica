@@ -23,8 +23,8 @@
           <h1>{{ currentPost.fields.title }}</h1>
         </div>
         <div class="copy">
-          <div id="toc"></div>
-          <vue-markdown toc="true" toc-id="toc" toc-first-level="1">{{currentPost.fields.body}}</vue-markdown>
+          <div v-html="tocHtml"></div>
+          <vue-markdown :toc="true" toc-id="toc" v-on:toc-rendered="say">{{currentPost.fields.body}}</vue-markdown>
         </div>
       </main>
       <nav class="pagination is-centered" role="navigation" aria-label="pagination">
@@ -48,7 +48,8 @@ export default {
   data () {
     return {
       allPosts: [],
-      currentPost: []
+      currentPost: [],
+      tocHtml: ''
     }
   },
   asyncData ({ env, params }) {
@@ -114,6 +115,11 @@ export default {
   components: {
     Navigation,
     VueMarkdown
+  },
+  methods: {
+    say: function (event) {
+      this.tocHtml = event
+    }
   }
 }
 </script>
