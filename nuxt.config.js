@@ -100,9 +100,10 @@ const config = {
   },
 
   modules:[
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    'nuxt-buefy'
   ],
-  
+
   workbox: {
     dev: true, //開発環境でもPWAできるように
   },
