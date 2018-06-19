@@ -99,6 +99,14 @@ const config = {
     }
   },
 
+  modules:[
+    '@nuxtjs/pwa'
+  ],
+  
+  workbox: {
+    dev: true, //開発環境でもPWAできるように
+  },
+
   /*
   ** Define environment variables being available
   ** in generate and browser context
