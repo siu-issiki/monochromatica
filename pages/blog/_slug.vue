@@ -28,9 +28,9 @@
         </div>
       </main>
       <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <nuxt-link v-if="nextPost" class="pagination-previous" :to="nextPost.fields.slug">&laquo; {{ nextPost.fields.title }}</nuxt-link>
+        <nuxt-link v-if="nextPost" class="pagination-previous" :to="'/blog/'+nextPost.fields.slug">&laquo; {{ nextPost.fields.title }}</nuxt-link>
         <div v-else class="pagination-previous" disabled>&laquo; Previous</div>
-        <nuxt-link v-if="prevPost" class="pagination-next" :to="prevPost.fields.slug">{{ prevPost.fields.title }} &raquo;</nuxt-link>
+        <nuxt-link v-if="prevPost" class="pagination-next" :to="'/blog/'+prevPost.fields.slug">{{ prevPost.fields.title }} &raquo;</nuxt-link>
       </nav>
     </section>
 
