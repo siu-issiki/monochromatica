@@ -108,10 +108,6 @@ export default {
   padding-top: 12%;
 }
 
-.home .page-info h2 {
-  font-size: 1.5em;
-}
-
 .picture {
   position: absolute;
   z-index: 2;
