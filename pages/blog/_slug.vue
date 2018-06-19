@@ -50,6 +50,28 @@ export default {
     })
     .catch(console.error)
   },
+  head () {
+    return {
+      title: this.post.fields.title,
+      meta: [
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.post.fields.description
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.post.fields.title
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.post.fields.heroImage.fields.file.url
+        }
+      ]
+    }
+  },
   components: {
     Navigation,
     VueMarkdown
