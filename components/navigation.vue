@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 
   .person-name:link,
   .person-name:visited {

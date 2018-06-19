@@ -60,12 +60,6 @@
     width: 100%;
   }
 
-  h1,
-  h2,
-  h3 {
-    font-size: 2em;
-  }
-
   /* Copy section */
   .body-container {
     background: #ffffff;

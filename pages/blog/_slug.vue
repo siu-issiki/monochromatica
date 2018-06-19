@@ -23,7 +23,8 @@
           <h1>{{ currentPost.fields.title }}</h1>
         </div>
         <div class="copy">
-          <vue-markdown>{{currentPost.fields.body}}</vue-markdown>
+          <div id="toc"></div>
+          <vue-markdown toc="true" toc-id="toc" toc-first-level="1">{{currentPost.fields.body}}</vue-markdown>
         </div>
       </main>
       <nav class="pagination is-centered" role="navigation" aria-label="pagination">
@@ -136,11 +137,19 @@ export default {
 }
 
 .copy *:not(div) {
-  margin: 2em 0 1em;
+  margin: 1.0em 0 1em;
+}
+
+.copy h1 {
+  font-size: 3.0em;
+}
+
+.copy h2 {
+  font-size: 2.5em;
 }
 
 .copy h3 {
-  font-size: 1.35em;
+  font-size: 2.0em;
 }
 
 .copy ul {
