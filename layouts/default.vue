@@ -25,7 +25,7 @@
 
   body {
     background: #E1E7EA;
-    max-width: 1180px;
+  //max-width: 1180px;
     margin: 0 auto;
     font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
     font-size: 16px;
