@@ -8,8 +8,8 @@
       >
       <time class="tiny date">{{ ( new Date(post.fields.publishDate)).toDateString() }}</time>
       <h4>{{ post.fields.title }}</h4>
-      <p>{{ post.fields.description }}</p>
     </nuxt-link>
+    <p>{{ post.fields.description }}</p>
 
     <div class="tags">
       <nuxt-link
