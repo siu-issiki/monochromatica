@@ -14,7 +14,7 @@
         <h2>All articles tagged #{{ tag }} ({{ posts.length }})</h2>
       </div>
       <ul class="items-list wrapper">
-        <li class="item" v-for="post in posts">
+        <li class="item" :key="post.title" v-for="post in posts">
           <article-preview :post="post"></article-preview>
         </li>
       </ul>

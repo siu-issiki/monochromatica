@@ -34,12 +34,13 @@
       <div class="items-bar wrapper">
         <h2>Recent articles</h2>
       </div>
-      <ul class="items-list wrapper">
-        <li class="item" v-for="post in posts">
+      <div class="columns is-multiline">
+        <div class="column is-4" :key="post.title" v-for="post in posts">
           <article-preview :post="post"></article-preview>
-        </li>
-      </ul>
+        </div>
+      </div>
     </section>
+</div>
 
   </div>
 </template>
