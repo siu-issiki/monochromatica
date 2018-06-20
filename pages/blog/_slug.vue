@@ -16,7 +16,9 @@
       <main class="wrapper">
         <div class="headline">
           <time class="tiny">{{ ( new Date(currentPost.fields.publishDate)).toDateString() }}</time>
-          <h1>{{ currentPost.fields.title }}</h1>
+          <h1>{{ currentPost.fields.title }}
+            <social-button :link="'https%3A%2F%2Fmonochromatica.netlify.com%2Fblog%2F'+currentPost.fields.slug" :title=currentPost.fields.title />
+          </h1>
         </div>
         <div class="copy">
           <div v-html="tocHtml"></div>
@@ -37,6 +39,7 @@
 import VueMarkdown from 'vue-markdown'
 import {createClient} from '~/plugins/contentful.js'
 import Navigation from '~/components/navigation.vue'
+import SocialButton from '~/components/social-button.vue'
 
 const client = createClient()
 
@@ -104,13 +107,26 @@ export default {
           hid: 'og:image',
           name: 'og:image',
           content: this.currentPost.fields.heroImage.fields.file.url
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary'
+        },
+        {
+          name: 'twitter:title',
+          content: this.currentPost.fields.title
+        },
+        {
+          name: 'twitter:description',
+          content: this.currentPost.fields.description
         }
       ]
     }
   },
   components: {
     Navigation,
-    VueMarkdown
+    VueMarkdown,
+    SocialButton
   },
   methods: {
     say: function (event) {

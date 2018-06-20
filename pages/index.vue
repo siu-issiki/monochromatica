@@ -150,31 +150,4 @@ h2 {
     max-width: 250px;
   }
 }
-
-.social-icons {
-  margin: 0;
-  padding: 0;
-}
-
-.social-icons li {
-  display: inline-block;
-  margin-right: 1em;
-}
-
-.social-icons a {
-  display: block;
-}
-
-.social-icons svg {
-  display: block;
-  max-width: 100%;
-  fill: #fff;
-  width: 1.5em;
-  height: 1.5em;
-}
-
-.social-icons svg:hover {
-  fill: #2199e8;
-}
-
 </style>
