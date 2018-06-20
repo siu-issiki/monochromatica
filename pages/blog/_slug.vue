@@ -1,11 +1,7 @@
 <template>
   <div>
     <header class="article header">
-      <div class="foreground">
-        <div class="page-bar wrapper">
-          <Navigation></Navigation>
-        </div>
-      </div>
+      <Navigation></Navigation>
       <div>
         <img
           :src="currentPost.fields.heroImage.fields.file.url + '?fit=scale&w=350&h=196'"

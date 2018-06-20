@@ -63,7 +63,7 @@ export default {
 .bg-img { 
   background-image: url(http://images.ctfassets.net/kup205fov2fl/7orLdboQQowIUs22KAW4U/c475133838322ffc43f5441a949130b8/cat.jpg%3Fw=1200) ;
   background-repeat: no-repeat;
-  background-position: center bottom;
+  background-position: center top;
   background-size: cover;
   border-radius: 0;
   margin-bottom: 0;
@@ -75,7 +75,7 @@ export default {
   margin: 0 auto;
  }
 h2 {
-  font-size: 3em;
+  font-size: 2.5em;
 }
 
 .page-info {
