@@ -1,52 +1,29 @@
 <template>
-  <div class="page-bar wrapper">
-    <a href="/" class="person-name">monochromatica</a>
-    <nav role="navigation" class="top-nav">
-      <ul class="menu">
-        <li>
-          <nuxt-link to="/">Index</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/blog">Blog</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/tags">Tags</nuxt-link>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  <nav class="navbar is-white" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <nuxt-link to="/" class="navbar-item">monochromatica</nuxt-link>
+      <div class="navbar-burger" data-target="navMenu" v-bind:class="{'is-active':isActive}" v-on:click='isActive=!isActive'>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div><!-- navbar-brand END -->
+    <div class="navbar-menu" id="navMenu" v-bind:class="{'is-active':isActive}">
+      <div class="navbar-end">
+        <nuxt-link to="/" class="navbar-item">Top</nuxt-link>
+        <nuxt-link to="/blog" class="navbar-item">Blog</nuxt-link>
+        <nuxt-link to="/tag" class="navbar-item">Tag</nuxt-link>
+      </div>
+    </div><!-- navbar-menu END -->
+  </nav>
 </template>
 
-<style scoped>
-
-  .person-name:link,
-  .person-name:visited {
-    width: 50%;
-    display: inline-block;
-    font-size: 2em;
-    text-decoration: none;
-    color: #373F49;
+<script>
+  export default{
+    data () {
+      return {
+        isActive: false
+      }
+    }
   }
-
-  .top-nav {
-    width: 50%;
-    display: inline-block;
-    text-align: right;
-  }
-
-  .menu {
-    display: inline-block;
-  }
-
-  .menu li {
-    display: inline-block;
-    margin-left: 1em;
-  }
-
-  .menu a:link,
-  .menu a:visited {
-    color: #373F49;
-    text-decoration: none;
-  }
-
-</style>
+</script>
