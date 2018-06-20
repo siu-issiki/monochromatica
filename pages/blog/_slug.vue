@@ -17,7 +17,7 @@
         <div class="headline">
           <time class="tiny">{{ ( new Date(currentPost.fields.publishDate)).toDateString() }}</time>
           <h1>{{ currentPost.fields.title }}
-            <social-button :link="'https%3A%2F%2Fmonochromatica.netlify.com%2Fblog%2F'+currentPost.fields.slug" :title=currentPost.fields.title />
+            <social-button :link="'https%3A%2F%2Fmonochromatica.netlify.com%2Fblog%2F'+currentPost.fields.slug" :title="currentPost.fields.title+'%20%7C%20monochromatica'" />
           </h1>
         </div>
         <div class="copy">
