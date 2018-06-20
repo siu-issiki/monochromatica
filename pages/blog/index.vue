@@ -13,11 +13,13 @@
       <div class="items-bar wrapper">
         <h2>All articles ({{ posts.length }})</h2>
       </div>
-      <ul class="items-list wrapper">
-        <li class="item" :key="post.title" v-for="post in posts">
-          <article-preview :post="post"></article-preview>
-        </li>
-      </ul>
+      <div class="container is-fluid">
+        <div class="columns is-multiline">
+          <div class="column is-4" :key="post.title" v-for="post in posts">
+            <article-preview :post="post"></article-preview>
+          </div>
+        </div>
+      </div>
     </section>
 
   </div>
