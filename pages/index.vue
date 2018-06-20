@@ -42,8 +42,6 @@
         </div>
       </div>
     </section>
-</div>
-
   </div>
 </template>
 
@@ -79,6 +77,10 @@ export default {
 </script>
 
 <style>
+
+.body-container {
+  padding-bottom: 3em;
+}
 
 .home.header {
   overflow: hidden;

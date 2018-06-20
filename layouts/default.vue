@@ -3,13 +3,15 @@
     <main role="main">
       <nuxt/>
     </main>
+    <foot />
   </div>
 </template>
 
 <script>
-
+  import Foot from '~/components/foot.vue'
   export default {
     components: {
+      Foot
     }
   }
 </script>
