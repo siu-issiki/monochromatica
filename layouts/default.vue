@@ -96,8 +96,4 @@
     color: #A0A0A0;
   }
 
-  *[class*="-bar"] {
-    border-bottom: 1px solid #EBEBEB;
-  }
-
 </style>

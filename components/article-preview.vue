@@ -10,13 +10,13 @@
       <h4>{{ post.fields.title }}</h4>
       <p class="tiny date">{{ ( new Date(post.fields.publishDate)).toDateString() }}</p>
     </nuxt-link>
-    <p>{{ post.fields.description }}</p>
+    <p class="description">{{ post.fields.description }}</p>
 
     <div class="tags">
       <nuxt-link
         v-for="tag in post.fields.tags"
         :key="tag"
-        :to="{ name: 'tags-tag', params: { tag: tag }}" class="tag">{{ tag }}</nuxt-link>
+        :to="{ name: 'tags-tag', params: { tag: tag }}" class="tag is-light is-rounded">{{ tag }}</nuxt-link>
     </div>
   </article>
 </template>
@@ -28,13 +28,17 @@ export default {
 </script>
 
 <style scoped>
+  .thumbnail{
+    padding-bottom: 10px;
+  }
+
   .date {
     padding-top: 10px;
     padding-bottom: 15px;
   }
 
-  h4 {
-    padding-top: 10px;
+  .description {
+    padding-bottom: 10px;
   }
 </style>
 

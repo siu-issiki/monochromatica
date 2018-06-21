@@ -110,10 +110,6 @@ h2 {
   color: #fff;
 }
 
-.home .page-bar {
-  border-bottom: 1px solid #4e4b5f;
-}
-
 .home .page-info {
   padding-top: 12%;
 }
