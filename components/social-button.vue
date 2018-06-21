@@ -1,10 +1,10 @@
 <template>
   <span class="social-icons">
-    <a :href="'https://www.facebook.com/sharer/sharer.php?u='+link">
-      <b-icon icon="facebook"></b-icon>
-    </a>
     <a :href="'https://twitter.com/intent/tweet?url='+link+'&text='+title">
       <b-icon icon="twitter"></b-icon>
+    </a>
+    <a :href="'https://www.facebook.com/sharer/sharer.php?u='+link">
+      <b-icon icon="facebook"></b-icon>
     </a>
   </span>
 </template>
