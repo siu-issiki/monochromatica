@@ -16,7 +16,7 @@
       <div class="items-bar wrapper">
         <h2>Recent articles</h2>
       </div>
-      <div class="container is-fluid">
+      <div class="articles container is-fluid">
         <div class="columns is-multiline">
           <div class="column is-4" :key="post.title" v-for="post in posts">
             <article-preview :post="post"></article-preview>
@@ -86,7 +86,7 @@ h2 {
   text-align: right;
 }
 
-.body-container {
+.articles {
   padding-bottom: 3em;
 }
 
