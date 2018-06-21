@@ -4,6 +4,7 @@
       <Navigation></Navigation>
       <div>
         <img
+          v-if="'heroImage' in currentPost.fields"
           :src="currentPost.fields.heroImage.fields.file.url + '?fit=scale&w=350&h=196'"
           :srcset="`${currentPost.fields.heroImage.fields.file.url}?w=350&h=87&fit=fill 350w, ${currentPost.fields.heroImage.fields.file.url}?w=1000&h=250&fit=fill 1000w, ${currentPost.fields.heroImage.fields.file.url}?w=2000&h=500&fit=fill 2000w`"
           size="100vw"
@@ -15,10 +16,10 @@
     <section class="body-container">
       <main class="wrapper">
         <div class="headline">
-          <time class="tiny">{{ ( new Date(currentPost.fields.publishDate)).toDateString() }}</time>
           <h1>{{ currentPost.fields.title }}
             <social-button :link="'https%3A%2F%2Fmonochromatica.netlify.com%2Fblog%2F'+currentPost.fields.slug" :title="currentPost.fields.title+'%20%7C%20monochromatica'" />
           </h1>
+          <p class="tiny date">{{ ( new Date(currentPost.fields.publishDate)).toDateString() }}</p>
         </div>
         <div class="copy">
           <div v-html="tocHtml"></div>
@@ -115,7 +116,7 @@ export default {
         {
           hid: 'og:image',
           name: 'og:image',
-          content: this.currentPost.fields.heroImage.fields.file.url
+          content: 'heroImage' in this.currentPost.fields ? this.currentPost.fields.heroImage.fields.file.url : null
         },
         {
           name: 'twitter:card',
@@ -187,6 +188,11 @@ export default {
 
 .copy li {
   margin: 0;
+}
+
+.date {
+  margin-top: -1em;
+  margin-bottom: 2em;
 }
 
 .wrapper {
