@@ -143,7 +143,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 .foreground .page-bar {
   border-bottom: 0;
