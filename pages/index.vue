@@ -111,7 +111,7 @@ h2 {
 }
 
 .home .page-bar {
-  //border-bottom: 1px solid #4e4b5f;
+  border-bottom: 1px solid #4e4b5f;
 }
 
 .home .page-info {
