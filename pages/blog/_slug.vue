@@ -25,13 +25,15 @@
           <vue-markdown :toc="true" toc-id="toc" v-on:toc-rendered="say">{{currentPost.fields.body}}</vue-markdown>
         </div>
       </main>
-      <div class="tags">
-        <nuxt-link
-          v-for="tag in currentPost.fields.tags"
-          :key="tag"
-          :to="{ name: 'tags-tag', params: { tag: tag }}" class="tag is-light is-rounded">{{ tag }}</nuxt-link>
+      <div class="blog-footer">
+        <div class="tags">
+          <nuxt-link
+            v-for="tag in currentPost.fields.tags"
+            :key="tag"
+            :to="{ name: 'tags-tag', params: { tag: tag }}" class="tag is-light is-rounded">{{ tag }}</nuxt-link>
           <social-button :link="'https%3A%2F%2Fmonochromatica.netlify.com%2Fblog%2F'+currentPost.fields.slug" :title="currentPost.fields.title+'%20%7C%20monochromatica'" />
         </div>
+      </div>
       <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <nuxt-link v-if="nextPost" class="pagination-previous is-clearfix" :to="'/blog/'+nextPost.fields.slug">&laquo; {{ nextPost.fields.title }}</nuxt-link>
         <div v-else class="pagination-previous" disabled>&laquo; Previous</div>
@@ -143,7 +145,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 .foreground .page-bar {
   border-bottom: 0;
@@ -192,10 +194,12 @@ export default {
 }
 
 
-.tags {
+.blog-footer {
   padding: 1em 0;
   max-width: 80%;
   margin: 0 auto;
 }
+
+
 
 </style>
