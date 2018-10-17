@@ -14,7 +14,7 @@
 
     <section class="body-container">
       <div class="items-bar wrapper">
-        <h2>Recent articles</h2>
+        <h2>最近の投稿</h2>
       </div>
       <div class="articles container is-fluid">
         <div class="columns is-multiline">

@@ -31,7 +31,7 @@
           <nuxt-link
             v-for="tag in currentPost.fields.tags"
             :key="tag"
-            :to="{ name: 'tags-tag', params: { tag: tag }}" class="tag is-light is-rounded">{{ tag }}</nuxt-link>
+            :to="{ name: 'tags-tag', params: { tag: tag }}" class="tag is-light is-rounded">{{ tag.fields.title }}</nuxt-link>
           <social-button :link="'https%3A%2F%2Fmonochromatica.netlify.com%2Fblog%2F'+currentPost.fields.slug" :title="currentPost.fields.title+'%20%7C%20monochromatica'" />
         </div>
       </div>

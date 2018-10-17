@@ -12,7 +12,7 @@
       <div class="navbar-end">
         <nuxt-link to="/" class="navbar-item">Top</nuxt-link>
         <nuxt-link to="/blog" class="navbar-item">Blog</nuxt-link>
-        <nuxt-link to="/tag" class="navbar-item">Tag</nuxt-link>
+        <nuxt-link to="/tags" class="navbar-item">Tag</nuxt-link>
       </div>
     </div><!-- navbar-menu END -->
   </nav>

@@ -32,17 +32,21 @@ import ArticlePreview from '~/components/article-preview.vue'
 const client = createClient()
 
 export default {
-  asyncData ({ env, params }) {
-    return client.getEntries({
-      'content_type': env.CTF_BLOG_POST_TYPE_ID,
-      'fields.tags[in]': params.tag,
-      order: '-sys.createdAt'
-    }).then(entries => {
-      return {
-        posts: entries.items,
-        tag: params.tag
-      }
+  async asyncData ({ env, params }) {
+    const tag = params.tag
+    const tags = await client.getEntries({
+      'content_type': 'tag',
+      'fields.title[in]': tag
     })
+    const entries = await client.getEntries({
+      'content_type': env.CTF_BLOG_POST_TYPE_ID,
+      'links_to_entry': tags.items[0].sys.id,
+      order: '-sys.createdAt'
+    })
+    return {
+      posts: entries.items,
+      tag: tag
+    }
   },
   components: {
     ArticlePreview,
@@ -50,3 +54,9 @@ export default {
   }
 }
 </script>
+
+<style>
+ .container {
+   padding-bottom: 3em;
+ }
+</style>
