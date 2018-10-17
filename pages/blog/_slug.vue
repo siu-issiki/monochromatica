@@ -22,6 +22,8 @@
           <p class="tiny blog-date">{{ ( new Date(currentPost.fields.publishDate)).toDateString() }}</p>
         </div>
         <div class="copy">
+          <p>{{ currentPost.fields.description }}</p>
+          <h3>目次</h3>
           <div v-html="tocHtml"></div>
           <vue-markdown :toc="true" toc-id="toc" v-on:toc-rendered="say">{{currentPost.fields.body}}</vue-markdown>
         </div>
@@ -31,7 +33,7 @@
           <nuxt-link
             v-for="tag in currentPost.fields.tags"
             :key="tag"
-            :to="{ name: 'tags-tag', params: { tag: tag }}" class="tag is-light is-rounded">{{ tag.fields.title }}</nuxt-link>
+            :to="{ name: 'tags-tag', params: { tag: tag.fields.title }}" class="tag is-light is-rounded">{{ tag.fields.title }}</nuxt-link>
           <social-button :link="'https%3A%2F%2Fmonochromatica.netlify.com%2Fblog%2F'+currentPost.fields.slug" :title="currentPost.fields.title+'%20%7C%20monochromatica'" />
         </div>
       </div>
@@ -148,6 +150,16 @@ export default {
 
 <style>
 
+blockquote {
+  border-left: 5px solid #ddd;
+  color: #777;
+  padding: 1em;
+  margin: 1.5em 0;
+  p {
+    margin: 0;
+  }
+}
+
 .foreground .page-bar {
   border-bottom: 0;
 }
@@ -157,7 +169,9 @@ export default {
 }
 
 .headline h1 {
-  font-size: 3.5em;
+  font-size: 2.5em;
+  line-height: 1.5em;
+  padding-bottom: 5px;
 }
 
 .copy {
