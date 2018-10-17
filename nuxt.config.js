@@ -93,7 +93,6 @@ const config = {
         })
       ])
       .then(([entries, tags]) => {
-        console.log(tags)
         return [
           // map entries to URLs
           ...entries.items.map(entry => `/blog/${entry.fields.slug}`),
