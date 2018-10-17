@@ -17,7 +17,7 @@
       <main class="wrapper">
         <div class="headline">
           <h1>{{ currentPost.fields.title }}
-            <social-button :link="'https%3A%2F%2Fmonochromatica.netlify.com%2Fblog%2F'+currentPost.fields.slug" :title="currentPost.fields.title+'%20%7C%20monochromatica'" />
+            <social-button :link="'https%3A%2F%2Fmonochromatica.netlify.com%2Fblog%2F'+currentPost.fields.slug" :title="encodeURIComponent(currentPost.fields.title)+'%20%7C%20monochromatica'" />
           </h1>
           <p class="tiny blog-date">{{ ( new Date(currentPost.fields.publishDate)).toDateString() }}</p>
         </div>
@@ -34,7 +34,7 @@
             v-for="tag in currentPost.fields.tags"
             :key="tag"
             :to="{ name: 'tags-tag', params: { tag: tag.fields.title }}" class="tag is-light is-rounded">{{ tag.fields.title }}</nuxt-link>
-          <social-button :link="'https%3A%2F%2Fmonochromatica.netlify.com%2Fblog%2F'+currentPost.fields.slug" :title="currentPost.fields.title+'%20%7C%20monochromatica'" />
+          <social-button :link="'https%3A%2F%2Fmonochromatica.netlify.com%2Fblog%2F'+currentPost.fields.slug" :title="encodeURIComponent(currentPost.fields.title)+'%20%7C%20monochromatica'" />
         </div>
       </div>
       <nav class="pagination is-centered" role="navigation" aria-label="pagination">
