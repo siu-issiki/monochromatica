@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 const {getConfigForKeys} = require('./lib/config.js')
 const ctfConfig = getConfigForKeys([
   'CTF_BLOG_POST_TYPE_ID',
