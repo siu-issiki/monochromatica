@@ -105,7 +105,8 @@ const config = {
 
   modules:[
     '@nuxtjs/pwa',
-    'nuxt-buefy'
+    'nuxt-buefy',
+    ['@nuxtjs/dotenv', { systemvars: true }]
   ],
 
   workbox: {
