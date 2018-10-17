@@ -41,7 +41,6 @@ export default {
     const tags = await client.getEntries({
       'content_type': 'tag'
     })
-    console.log(tags.items[0].fields.title)
     return {
       tags: tags
     }

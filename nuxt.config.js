@@ -3,6 +3,7 @@ require('dotenv').config()
 const {getConfigForKeys} = require('./lib/config.js')
 const ctfConfig = getConfigForKeys([
   'CTF_BLOG_POST_TYPE_ID',
+  'CTF_BLOG_TAG_TYPE_ID',
   'CTF_SPACE_ID',
   'CTF_CDA_ACCESS_TOKEN',
   'CTF_CMA_ACCESS_TOKEN',
@@ -87,15 +88,17 @@ const config = {
           'content_type': ctfConfig.CTF_BLOG_POST_TYPE_ID
         }),
         // get the blog post content type
-        cmaClient.getSpace(ctfConfig.CTF_SPACE_ID)
-          .then(space => space.getContentType(ctfConfig.CTF_BLOG_POST_TYPE_ID))
+        cdaClient.getEntries({
+          'content_type': ctfConfig.CTF_BLOG_TAG_TYPE_ID
+        })
       ])
-      .then(([entries, postType]) => {
+      .then(([entries, tags]) => {
+        console.log(tags)
         return [
           // map entries to URLs
           ...entries.items.map(entry => `/blog/${entry.fields.slug}`),
           // map all possible tags to URLs
-          ...postType.fields.find(field => field.id === 'tags').items.validations[0].in.map(tag => `/tags/${tag}`)
+          ...tags.items.map(tag => `/tags/${tag.fields.title}`)
         ]
       })
     }
