@@ -61,7 +61,7 @@ export default {
 <style>
 
 .bg-img { 
-  background-image: url(http://images.ctfassets.net/kup205fov2fl/7orLdboQQowIUs22KAW4U/c475133838322ffc43f5441a949130b8/cat.jpg%3Fw=1200) ;
+  background-image: url(https://images.ctfassets.net/kup205fov2fl/7orLdboQQowIUs22KAW4U/c475133838322ffc43f5441a949130b8/cat.jpg?w=1200) ;
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
