@@ -63,23 +63,10 @@ const config = {
     ]
   },
 
-  /*
-  ** ᕕ( ᐛ )ᕗ CTF-BLOG-IN-5-MINUTES
-  ** Make client available everywhere via Nuxt plugins
-  */
   plugins: [
     '~/plugins/contentful'
   ],
 
-  /*
-  ** ᕕ( ᐛ )ᕗ CTF-BLOG-IN-5-MINUTES
-  ** Get all blog posts from Contentful
-  ** and generate the needed files upfront
-  **
-  ** Included:
-  ** - blog posts
-  ** - available blog post tags
-  */
   generate: {
     routes () {
       return Promise.all([
@@ -106,7 +93,10 @@ const config = {
   modules:[
     '@nuxtjs/pwa',
     'nuxt-buefy',
-    ['@nuxtjs/dotenv', { systemvars: true }]
+    ['@nuxtjs/dotenv', { systemvars: true }],
+    ['@nuxtjs/google-analytics', {
+      id: process.env.GA_ID
+    }]
   ],
 
   workbox: {
