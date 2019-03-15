@@ -59,6 +59,8 @@ export default {
   methods: {
     submit: function () {
       auth.login(this.email, this.password).then(response => {
+        this.$store.commit('setAdminToken', response.token.access_token)
+        this.$router.push('/admin/success')
       }).catch(error => {
         this.showMessage(error, 'danger')
       })
