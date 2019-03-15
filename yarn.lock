@@ -2,6 +2,26 @@
 # yarn lockfile v1
 
 
+"@fortawesome/fontawesome-common-types@^0.2.15":
+  version "0.2.15"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.15.tgz#16af950653083d1e3064061de9f8e5e3b579f688"
+
+"@fortawesome/fontawesome-svg-core@^1.2.12", "@fortawesome/fontawesome-svg-core@^1.2.15":
+  version "1.2.15"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.15.tgz#368f9fc7e8e8d8636495dc7483f97510f920ba97"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.15"
+
+"@fortawesome/free-solid-svg-icons@^5.7.2":
+  version "5.7.2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.7.2.tgz#9ec2ed353d630092a8e19cc8aae2f716572963e5"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.15"
+
+"@fortawesome/vue-fontawesome@^0.1.4", "@fortawesome/vue-fontawesome@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.5.tgz#ea70a4d4ad0d6d617048a5b2a2ff33e21fe47d61"
+
 "@nuxtjs/dotenv@^1.1.1":
   version "1.1.1"
   resolved "http://registry.npmjs.org/@nuxtjs/dotenv/-/dotenv-1.1.1.tgz#c3d68f96d8f76cac4c4ddbc8268702eb95737bbe"
@@ -2823,6 +2843,12 @@ globby@^6.1.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
+gotrue-js@^0.9.24:
+  version "0.9.24"
+  resolved "https://registry.yarnpkg.com/gotrue-js/-/gotrue-js-0.9.24.tgz#cff20efa170f1670ec7268242604477ba0c4e0d3"
+  dependencies:
+    micro-api-client "^3.2.1"
+
 graceful-fs@4.1.11, graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
@@ -3967,6 +3993,10 @@ methods@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
 
+micro-api-client@^3.2.1:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/micro-api-client/-/micro-api-client-3.3.0.tgz#52dd567d322f10faffe63d19d4feeac4e4ffd215"
+
 micromatch@^3.1.4:
   version "3.1.10"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-3.1.10.tgz#70859bc95c9840952f359a068a3fc49f9ecfac23"
@@ -4314,6 +4344,13 @@ nuxt-buefy@^0.0.5:
   resolved "https://registry.yarnpkg.com/nuxt-buefy/-/nuxt-buefy-0.0.5.tgz#5d070bcc3abc6f3aa484c0433ad761a682690c4c"
   dependencies:
     buefy "0.6.6"
+
+nuxt-fontawesome@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/nuxt-fontawesome/-/nuxt-fontawesome-0.4.0.tgz#e1ea0cdda9ec6785739a86e9e3d42f62a8c10443"
+  dependencies:
+    "@fortawesome/fontawesome-svg-core" "^1.2.12"
+    "@fortawesome/vue-fontawesome" "^0.1.4"
 
 nuxt@^1.0.0-rc4:
   version "1.4.1"

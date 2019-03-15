@@ -96,8 +96,18 @@ const config = {
     ['@nuxtjs/dotenv', { systemvars: true }],
     ['@nuxtjs/google-analytics', {
       id: process.env.GA_ID
-    }]
+    }],
+    'nuxt-fontawesome'
   ],
+
+  fontawesome: {
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['fas']
+      }
+    ]
+  },
 
   workbox: {
     dev: true, //開発環境でもPWAできるように
