@@ -64,7 +64,8 @@ const config = {
   },
 
   plugins: [
-    '~/plugins/contentful'
+    '~/plugins/contentful',
+    { src: "~plugins/persistedstate.js", ssr: false }
   ],
 
   generate: {
@@ -97,7 +98,8 @@ const config = {
     ['@nuxtjs/google-analytics', {
       id: process.env.GA_ID
     }],
-    'nuxt-fontawesome'
+    'nuxt-fontawesome',
+    'nuxt-client-init-module'
   ],
 
   fontawesome: {

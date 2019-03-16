@@ -13,6 +13,15 @@ const createStore = () => {
     mutations: {
       setAdminToken (state, token) {
         state.adminToken = token
+      },
+      adminLogout (state) {
+        state.adminToken = ''
+      }
+    },
+    actions: {
+      nuxtClientInit ({ commit }, context) {
+        const adminToken = JSON.parse(window.localStorage.vuex).adminToken
+        commit('setAdminToken', adminToken)
       }
     }
   })

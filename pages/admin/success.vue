@@ -6,6 +6,6 @@
 
 <script>
   export default {
-    middleware: 'authenticated'
+    layout: 'admin'
   }
 </script>
