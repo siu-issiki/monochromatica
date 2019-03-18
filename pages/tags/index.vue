@@ -15,7 +15,7 @@
           <ul class="column is-4">
             <li>
               <nuxt-link
-                :key="tag"
+                :key="tag.gields.title"
                 :to="{ name: 'tags-tag', params: { tag: tag.fields.title }}"
                 class="tag is-light is-rounded"
               >
