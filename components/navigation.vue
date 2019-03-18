@@ -13,7 +13,7 @@
         <nuxt-link to="/" class="navbar-item">Top</nuxt-link>
         <nuxt-link to="/blog" class="navbar-item">Blog</nuxt-link>
         <nuxt-link to="/tags" class="navbar-item">Tag</nuxt-link>
-        <nuxt-link to="/admin/success" class="navbar-item">Admin</nuxt-link>
+        <nuxt-link to="/admin/login" class="navbar-item">Admin</nuxt-link>
       </div>
     </div><!-- navbar-menu END -->
   </nav>
