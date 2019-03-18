@@ -12,10 +12,10 @@ const setPostProperty = async (payload) => {
   json.fields.author = {'ja-JP': {'sys': {'type': 'Link', 'linkType': 'Entry', 'id': '54LEoFW0jmuosCkqImiiW8'}}}
   var now = new Date()
   var y = now.getFullYear()
-  var m = now.getMonth() + 1
-  var d = now.getDate()
-  var h = now.getHours()
-  var min = now.getMinutes()
+  var m = ('0' + (now.getMonth() + 1)).slice(-2)
+  var d = ('0' + now.getDate()).slice(-2)
+  var h = ('0' + now.getHours()).slice(-2)
+  var min = ('0' + now.getMinutes()).slice(-2)
   json.fields.publishDate = {'ja-JP': y + '-' + m + '-' + d + 'T' + h + ':' + min + '+09:00'}
 
   const tags = await getTags()
@@ -117,6 +117,7 @@ export const actions = {
       'Content-Type': 'application/vnd.contentful.management.v1+json',
       'X-Contentful-Content-Type': 'blogPost'
     }
+    console.log(json)
     const result = await axios({
       method: 'POST',
       url: url,
@@ -127,6 +128,6 @@ export const actions = {
       console.log(error.response.status)
       console.log(error.response.headers)
     })
-    await publishEntry(result.data.sys.id)
+    if (payload.publish) await publishEntry(result.data.sys.id)
   }
 }

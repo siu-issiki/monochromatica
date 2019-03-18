@@ -5,7 +5,7 @@
         <h1 class="title">New Post</h1>
         <div class="field">
           <div class="control">
-            <input class="input" v-model="title" type="text" placeholder="title">
+            <input class="input" v-model="title" v-on:change="updateSlug" type="text" placeholder="title">
           </div>
         </div>
         <div class="field">
@@ -33,6 +33,7 @@
             <div v-html="$md.render(body)" class="copy"></div>
           </div>
         </div>
+        <input type="checkbox" id="checkbox" v-model="publishFlag">
         <button @click="publish">publish</button>
       </div>
     </section>
@@ -51,7 +52,8 @@
         slug: '',
         description: '',
         body: '# hello',
-        tags: ''
+        tags: '',
+        publishFlag: false
       }
     },
     components: {
@@ -64,10 +66,17 @@
           slug: this.slug,
           description: this.description,
           body: this.body,
-          tags: this.tags
+          tags: this.tags,
+          publish: this.publishFlag
         }
         await this.publishPost({ payload })
         this.$router.push('/admin')
+      },
+      updateSlug () {
+        this.slug = encodeURI(
+              this.title.replace(/([a-z])([A-Z])/g, '$1-$2')
+             .replace(/\s+/g, '-')
+             .toLowerCase())
       },
       ...mapActions('posts', ['publishPost'])
     }
