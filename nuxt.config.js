@@ -64,7 +64,8 @@ const config = {
   },
 
   plugins: [
-    '~/plugins/contentful'
+    '~/plugins/contentful',
+    '~/plugins/contentfulManagement'
   ],
 
   generate: {
@@ -83,6 +84,7 @@ const config = {
         return [
           // map entries to URLs
           ...entries.items.map(entry => `/blog/${entry.fields.slug}`),
+          ...entries.items.map(entry => `/admin/posts/${entry.fields.slug}`),
           // map all possible tags to URLs
           ...tags.items.map(tag => `/tags/${tag.fields.title}`)
         ]

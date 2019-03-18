@@ -1,6 +1,9 @@
 <template>
   <article class="box">
-    <nuxt-link :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}" class="title">
+    <nuxt-link :to="{ 
+      name: 'admin-posts-edit',
+      params: { edit: post.fields.slug },
+      query: { id: post.sys.id }}" class="title">
       <div :id="post.title" >
       <img class="thumbnail" v-if="'heroImage' in post.fields"
         :src="post.fields.heroImage.fields.file.url + '?fit=scale&w=350&h=196'"

@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@contentful/axios@^0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@contentful/axios/-/axios-0.18.0.tgz#576e0e6047411a66971e82d40688a8c795e62f27"
+  dependencies:
+    follow-redirects "^1.2.5"
+    is-buffer "^1.1.5"
+
 "@fortawesome/fontawesome-common-types@^0.2.15":
   version "0.2.15"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.15.tgz#16af950653083d1e3064061de9f8e5e3b579f688"
@@ -1617,7 +1624,7 @@ contentful-import@^4.5.4:
     npmlog "^4.0.0"
     yargs "^7.0.2"
 
-contentful-management@^3.4.0, contentful-management@^3.7.6:
+contentful-management@^3.7.6:
   version "3.12.0"
   resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-3.12.0.tgz#3da7972bb8dc0730cfc06f2e964f47a5f6a8d448"
   dependencies:
@@ -1626,6 +1633,14 @@ contentful-management@^3.4.0, contentful-management@^3.7.6:
     es6-promise "^4.0.5"
     lodash "^4.17.4"
     platform "1.3.3"
+
+contentful-management@^5.7.0:
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-5.7.0.tgz#ea6045c519bae1d06af641ca58a2a9cfa4b39266"
+  dependencies:
+    "@contentful/axios" "^0.18.0"
+    contentful-sdk-core "^6.3.0"
+    lodash "^4.17.11"
 
 contentful-sdk-core@^3.13.1:
   version "3.14.4"
@@ -1642,6 +1657,13 @@ contentful-sdk-core@^5.0.0:
   dependencies:
     lodash "^4.17.4"
     qs "^6.5.1"
+
+contentful-sdk-core@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/contentful-sdk-core/-/contentful-sdk-core-6.3.0.tgz#f648ccd11eb50ec47ba4ab580b3a14217bccc293"
+  dependencies:
+    lodash "^4.17.10"
+    qs "^6.5.2"
 
 contentful@^4.3.0:
   version "4.6.4"
@@ -5567,6 +5589,10 @@ qs@6.5.1:
 qs@^6.1.0, qs@^6.5.1, qs@~6.5.1:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
+
+qs@^6.5.2:
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.6.0.tgz#a99c0f69a8d26bf7ef012f871cdabb0aee4424c2"
 
 query-string@^4.1.0:
   version "4.3.4"
