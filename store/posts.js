@@ -10,7 +10,13 @@ const setPostProperty = async (payload) => {
   json.fields.description = {'ja-JP': payload.description}
   json.fields.body = {'ja-JP': payload.body}
   json.fields.author = {'ja-JP': {'sys': {'type': 'Link', 'linkType': 'Entry', 'id': '54LEoFW0jmuosCkqImiiW8'}}}
-  json.fields.publishDate = {'ja-JP': '2018-09-13T12:30+09:00'}
+  var now = new Date()
+  var y = now.getFullYear()
+  var m = now.getMonth() + 1
+  var d = now.getDate()
+  var h = now.getHours()
+  var m = now.getMinutes()
+  json.fields.publishDate = {'ja-JP': y + '-' + m + '-'+ d + 'T' + h + ':' + m + '+09:00'}
 
   const tags = await getTags()
   const postTags = await parseTags(payload.tags)
@@ -76,6 +82,7 @@ const postTag = async (tag) => {
 }
 
 const parseTags = async (tags) => {
+  if (tags == '') return []
   var postTags = tags.split(', ')
   return postTags
 }

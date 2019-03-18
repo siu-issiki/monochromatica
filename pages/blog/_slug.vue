@@ -209,11 +209,6 @@ blockquote {
   margin-bottom: 2em;
 }
 
-.wrapper {
-  border-bottom: 1px solid #EBEBEB;
-}
-
-
 .blog-footer {
   padding: 1em 0;
   max-width: 80%;

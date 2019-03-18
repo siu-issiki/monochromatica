@@ -127,8 +127,4 @@
     margin-top: -1em;
     margin-bottom: 2em;
   }
-
-  .wrapper {
-    border-bottom: 1px solid #EBEBEB;
-  }
 </style>
