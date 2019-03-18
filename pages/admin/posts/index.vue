@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nuxt-link to="/admin/posts/" class="navbar-item is-size-4">posts</nuxt-link>
+    <nuxt-link to="/admin/posts/new" class="navbar-item is-size-4">new</nuxt-link>
   </div>
 </template>
 

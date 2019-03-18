@@ -64,8 +64,7 @@ const config = {
   },
 
   plugins: [
-    '~/plugins/contentful',
-    { src: "~plugins/persistedstate.js", ssr: false }
+    '~/plugins/contentful'
   ],
 
   generate: {
@@ -93,14 +92,18 @@ const config = {
 
   modules:[
     '@nuxtjs/pwa',
+    '@nuxtjs/axios',
+    '@nuxtjs/markdownit',
     'nuxt-buefy',
     ['@nuxtjs/dotenv', { systemvars: true }],
     ['@nuxtjs/google-analytics', {
       id: process.env.GA_ID
     }],
-    'nuxt-fontawesome',
-    'nuxt-client-init-module'
+    'nuxt-fontawesome'
   ],
+
+  axios: {
+  },
 
   fontawesome: {
     imports: [
@@ -115,12 +118,26 @@ const config = {
     dev: true, //開発環境でもPWAできるように
   },
 
+
+  markdownit: {
+    injected: true,
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    typography: true,
+    html: true,
+    use: [
+      'markdown-it-toc' // 目次を作るためのライブラリ。別途インストールが必要
+    ]
+  },
+
   /*
   ** Define environment variables being available
   ** in generate and browser context
   */
   env: {
     CTF_SPACE_ID: ctfConfig.CTF_SPACE_ID,
+    CTF_CMA_ACCESS_TOKEN: ctfConfig.CTF_CMA_ACCESS_TOKEN,
     CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN,
     CTF_PERSON_ID: ctfConfig.CTF_PERSON_ID,
     CTF_BLOG_TAG_TYPE_ID: ctfConfig.CTF_BLOG_TAG_TYPE_ID,

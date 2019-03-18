@@ -1,6 +1,11 @@
 <template>
   <div class="container">
-    <main role="main" v-if="getAdminToken">
+    <header class="blog header">
+      <div class="foreground">
+        <Navigation></Navigation>
+      </div>
+    </header>
+    <main role="main">
       <nuxt />
     </main>
     <foot />
@@ -10,8 +15,10 @@
 <script>
   import Foot from '~/components/foot.vue'
   import { mapGetters } from 'vuex'
+  import Navigation from '~/components/navigation.vue'
 
   export default {
+    middleware: 'authenticated',
     computed: {
       // ゲッターを、スプレッド演算子（object spread operator）を使って computed に組み込む
       ...mapGetters([
@@ -19,12 +26,8 @@
       ])
     },
     components: {
+      Navigation,
       Foot
-    },
-    created: function () {
-      if (!this.getAdminToken) {
-        this.$router.push('/admin/')
-      }
     }
   }
 </script>

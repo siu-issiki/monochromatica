@@ -1,30 +1,31 @@
-import Vuex from 'vuex'
+var cookieparser = require('cookieparser')
 
-const createStore = () => {
-  return new Vuex.Store({
-    state: () => ({
-      adminToken: ''
-    }),
-    getters: {
-      getAdminToken (state) {
-        return state.adminToken
-      }
-    },
-    mutations: {
-      setAdminToken (state, token) {
-        state.adminToken = token
-      },
-      adminLogout (state) {
-        state.adminToken = ''
-      }
-    },
-    actions: {
-      nuxtClientInit ({ commit }, context) {
-        const adminToken = JSON.parse(window.localStorage.vuex).adminToken
-        commit('setAdminToken', adminToken)
-      }
-    }
-  })
+export const state = () => ({
+  adminToken: ''
+})
+
+export const getters = {
+  getAdminToken (state) {
+    return state.adminToken
+  }
 }
 
-export default createStore
+export const mutations = {
+  setAdminToken (state, token) {
+    state.adminToken = token
+  },
+  adminLogout (state) {
+    state.adminToken = ''
+  }
+}
+
+export const actions = {
+  nuxtServerInit ({ commit }, { req }) {
+    let accessToken = null
+    if (req.headers.cookie) {
+      var parsed = cookieparser.parse(req.headers.cookie)
+      accessToken = parsed.auth
+    }
+    commit('setAdminToken', accessToken)
+  }
+}

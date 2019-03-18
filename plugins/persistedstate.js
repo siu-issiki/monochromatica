@@ -1,4 +1,4 @@
-import createPersistedState from 'vuex-persistedstate'
+// import createPersistedState from 'vuex-persistedstate'
 
 export default ({store, isHMR}) => {
   // In case of HMR, mutation occurs before nuxReady, so previously saved state
@@ -9,7 +9,7 @@ export default ({store, isHMR}) => {
 
   if (process.client) {
     window.onNuxtReady((nuxt) => {
-      createPersistedState()(store) // vuex plugins can be connected to store, even after creation
+      // createPersistedState()(store) // vuex plugins can be connected to store, even after creation
     })
   }
 }
