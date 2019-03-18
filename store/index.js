@@ -20,6 +20,7 @@ export const mutations = {
 }
 
 export const actions = {
+  /*
   nuxtServerInit ({ commit }, { req }) {
     let accessToken = null
     if (req.headers.cookie) {
@@ -28,4 +29,5 @@ export const actions = {
     }
     commit('setAdminToken', accessToken)
   }
+  */
 }
