@@ -15,8 +15,8 @@ const setPostProperty = async (payload) => {
   var m = now.getMonth() + 1
   var d = now.getDate()
   var h = now.getHours()
-  var m = now.getMinutes()
-  json.fields.publishDate = {'ja-JP': y + '-' + m + '-'+ d + 'T' + h + ':' + m + '+09:00'}
+  var min = now.getMinutes()
+  json.fields.publishDate = {'ja-JP': y + '-' + m + '-' + d + 'T' + h + ':' + min + '+09:00'}
 
   const tags = await getTags()
   const postTags = await parseTags(payload.tags)
@@ -82,7 +82,7 @@ const postTag = async (tag) => {
 }
 
 const parseTags = async (tags) => {
-  if (tags == '') return []
+  if (tags === '') return []
   var postTags = tags.split(', ')
   return postTags
 }

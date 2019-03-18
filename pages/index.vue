@@ -63,7 +63,7 @@ export default {
 .bg-img { 
   background-image: url(https://images.ctfassets.net/kup205fov2fl/7orLdboQQowIUs22KAW4U/c475133838322ffc43f5441a949130b8/cat.jpg?w=1200) ;
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center;
   background-size: cover;
   border-radius: 0;
   margin-bottom: 0;
@@ -93,8 +93,8 @@ h2 {
 .home.header {
   overflow: hidden;
   position: relative;
-  height: 70vw;
-  min-height: 400px;
+  height: 25vw;
+  min-height: 200px;
   max-height: 610px;
   background: #000;
   color: #fff;
