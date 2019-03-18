@@ -11,7 +11,7 @@
 
     <section class="body-container">
       <div class="container is-fluid">
-        <div class="columns is-multiline" :key="tag.title" v-for="tag in tags.items">
+        <div class="columns is-multiline" :key="tag.fields.title" v-for="tag in tags.items">
           <ul class="column is-4">
             <li>
               <nuxt-link
