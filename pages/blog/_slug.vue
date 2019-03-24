@@ -25,7 +25,7 @@
           <p>{{ currentPost.fields.description }}</p>
           <h3>目次</h3>
           <div v-html="tocHtml"></div>
-          <vue-markdown :toc="true" toc-id="toc" v-on:toc-rendered="say">{{currentPost.fields.body}}</vue-markdown>
+          <vue-markdown :toc="true" toc-id="toc" v-on:toc-rendered="say" v-on:rendered="rendered">{{currentPost.fields.body}}</vue-markdown>
         </div>
       </main>
       <div class="blog-footer">
@@ -43,6 +43,9 @@
         <nuxt-link v-if="prevPost" class="pagination-next" :to="'/blog/'+prevPost.fields.slug">{{ prevPost.fields.title }} &raquo;</nuxt-link>
       </nav>
     </section>
+    <span v-if="twitterWidget">
+      <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </span>
 
   </div>
 </template>
@@ -60,7 +63,8 @@ export default {
     return {
       allPosts: [],
       currentPost: [],
-      tocHtml: ''
+      tocHtml: '',
+      twitterWidget: false
     }
   },
   asyncData ({ env, params }) {
@@ -143,6 +147,9 @@ export default {
   methods: {
     say: function (event) {
       this.tocHtml = event
+    },
+    rendered: function () {
+      this.twitterWidget = true
     }
   }
 }
