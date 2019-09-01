@@ -12,7 +12,6 @@
       <div class="navbar-end">
         <nuxt-link to="/blog" class="navbar-item">Blog</nuxt-link>
         <nuxt-link to="/tags" class="navbar-item">Tag</nuxt-link>
-        <nuxt-link to="/admin/login" class="navbar-item">Admin</nuxt-link>
       </div>
     </div><!-- navbar-menu END -->
   </nav>
