@@ -186,19 +186,19 @@ blockquote {
 }
 
 .copy *:not(div) {
-  margin: 1.0em 0 1em;
+  margin: 0.5em 0;
 }
 
 .copy h1 {
-  font-size: 3.0em;
+  font-size: 2.0em;
 }
 
 .copy h2 {
-  font-size: 2.5em;
+  font-size: 1.75em;
 }
 
 .copy h3 {
-  font-size: 2.0em;
+  font-size: 1.0em;
 }
 
 .copy ul {

@@ -30,7 +30,7 @@
     margin: 0 auto;
     font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
     font-size: 16px;
-    line-height: 1.65;
+    line-height: 1.85;
     color: #373F49;
   }
 
