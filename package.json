@@ -19,7 +19,7 @@
     "gotrue-js": "^0.9.24",
     "js-cookie": "^2.2.0",
     "markdown-it-toc": "^1.1.0",
-    "nuxt": "^1.0.0-rc4",
+    "nuxt": "^2.15.8",
     "nuxt-buefy": "^0.0.5",
     "nuxt-client-init-module": "^0.1.4",
     "nuxt-fontawesome": "^0.4.0",
